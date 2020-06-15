@@ -10,8 +10,8 @@
         </thead>
         <tbody>
           <tr v-for="toy in toys" :key="toy.id">
-            <td>{{ toy.name }}</td>
-            <td>{{ toy.image }}</td>
+            <td>{{ toy.data.name }}</td>
+            <td>{{ toy.data.code }}</td>
           </tr>
         </tbody>
       </template>
