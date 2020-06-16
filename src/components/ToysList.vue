@@ -12,6 +12,9 @@
           <tr v-for="toy in toys" :key="toy.id">
             <td>{{ toy.data.name }}</td>
             <td>{{ toy.data.code }}</td>
+            <td>{{ toy.data.stock }}</td>
+            <td>{{ toy.data.price }}</td>
+            <td><button class="button btn-success" @click="removeToy(toy.id)">Borrar</button></td>
           </tr>
         </tbody>
       </template>
@@ -28,7 +31,13 @@ export default {
     ...mapState(['toys'])
   },
   methods: {
-    ...mapActions(['setToys'])
+    ...mapActions(['setToys', 'deleteToy']),
+    removeToy(id){
+      let ok = confirm('¿estas seguro?')
+      if(ok){
+        this.deleteToy(id)
+      }
+    }
   },  
   created(){
    this.setToys()
